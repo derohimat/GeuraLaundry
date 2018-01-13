@@ -3,13 +3,17 @@ SISFO &amp; Antar Jemput Laundry (Kelompok 5 - IF Widyatama 2016)
 
 
 ## Database
+
+### User
 ```
-===User===
 *_id
 username
 password
 
-===Transaction===
+```
+
+### Transaction
+```
 *_id
 created_time
 updated_time
@@ -20,19 +24,25 @@ finished_time
 **customer_id
 status
 weight
+```
 
-===Type===
+### Type
+```
 *_id
 name
 price
 unit
+```
 
-===Package===
+### Package
+```
 *_id
 name
 estimate
+```
 
-===Customer===
+### Customer
+```
 *_id
 name
 phone_number
