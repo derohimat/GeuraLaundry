@@ -1,0 +1,15 @@
+c:\users\computer\documents\visual studio 2010\Projects\login\login\bin\Debug\login.exe
+c:\users\computer\documents\visual studio 2010\Projects\login\login\bin\Debug\login.pdb
+c:\users\computer\documents\visual studio 2010\Projects\login\login\bin\Debug\MySql.Data.Entity.EF6.dll
+c:\users\computer\documents\visual studio 2010\Projects\login\login\bin\Debug\MySql.Data.Entity.EF6.xml
+c:\users\computer\documents\visual studio 2010\Projects\login\login\obj\x86\Debug\login.csprojResolveAssemblyReference.cache
+c:\users\computer\documents\visual studio 2010\Projects\login\login\obj\x86\Debug\login.Form1.resources
+c:\users\computer\documents\visual studio 2010\Projects\login\login\obj\x86\Debug\login.Properties.Resources.resources
+c:\users\computer\documents\visual studio 2010\Projects\login\login\obj\x86\Debug\login.csproj.GenerateResource.Cache
+c:\users\computer\documents\visual studio 2010\Projects\login\login\obj\x86\Debug\login.exe
+c:\users\computer\documents\visual studio 2010\Projects\login\login\obj\x86\Debug\login.pdb
+C:\Users\COMPUTER\Documents\Visual Studio 2010\Projects\login\login\obj\x86\Debug\login.Form2.resources
+C:\Users\COMPUTER\Documents\Visual Studio 2010\Projects\login\login\obj\x86\Debug\login.Form3.resources
+C:\Users\COMPUTER\Documents\Visual Studio 2010\Projects\login\login\obj\x86\Debug\login.Form4.resources
+C:\Users\COMPUTER\Documents\Visual Studio 2010\Projects\login\login\obj\x86\Debug\login.Form5.resources
+C:\Users\COMPUTER\documents\visual studio 2010\Projects\login\login\obj\x86\Debug\login.Form6.resources
