@@ -25,18 +25,36 @@ namespace login
         private void Transaksi_Load(object sender, EventArgs e)
         {
             MySqlConnection connection = new MySqlConnection("server=localhost;Database=db_laundry;username=root;password=;");
-            string selectQuery = "SELECT * FROM type"; connection.Open();
+            connection.Open();
 
-            MySqlCommand command = new MySqlCommand(selectQuery, connection);
+            string selectQueryType = "SELECT * FROM type";
+            
+            MySqlCommand commandType = new MySqlCommand(selectQueryType, connection);
 
-            MySqlDataReader reader = command.ExecuteReader();
+            MySqlDataReader readerType = commandType.ExecuteReader();
 
-            while (reader.Read())
+            while (readerType.Read())
             {
-                comboBox3.Items.Add(reader.GetString("name"));
+                comboBox2.Items.Add(readerType.GetString("name"));
             }
 
             connection.Close();
+
+            connection.Open();
+            string selectQueryPaket = "SELECT * FROM package";
+            
+            MySqlCommand commandPaket = new MySqlCommand(selectQueryPaket, connection);
+
+            MySqlDataReader readerPaket = commandPaket.ExecuteReader();
+
+            while (readerPaket.Read())
+            {
+                comboBox3.Items.Add(readerPaket.GetString("name"));
+            }
+
+            connection.Close();
+
+
         }
     }
 }
