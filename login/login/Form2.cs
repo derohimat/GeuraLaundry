@@ -50,5 +50,12 @@ namespace login
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            Transaksi newMDIChild = new Transaksi();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
     }
 }
