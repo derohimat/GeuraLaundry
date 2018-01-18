@@ -79,6 +79,7 @@
             this.submenu3ToolStripMenuItem.Name = "submenu3ToolStripMenuItem";
             this.submenu3ToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.submenu3ToolStripMenuItem.Text = "Transaksi";
+            this.submenu3ToolStripMenuItem.Click += new System.EventHandler(this.submenu3ToolStripMenuItem_Click);
             // 
             // submenu4ToolStripMenuItem
             // 

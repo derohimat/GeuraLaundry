@@ -46,6 +46,10 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,6 +76,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(480, 150);
             this.dataGridView1.TabIndex = 54;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // button3
             // 
@@ -199,11 +204,47 @@
             this.comboBox3.Size = new System.Drawing.Size(121, 21);
             this.comboBox3.TabIndex = 61;
             // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(338, 94);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(122, 20);
+            this.textBox5.TabIndex = 64;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(252, 97);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(68, 13);
+            this.label8.TabIndex = 63;
+            this.label8.Text = "Waktu Order";
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(338, 124);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(122, 20);
+            this.textBox6.TabIndex = 66;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(252, 127);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(37, 13);
+            this.label9.TabIndex = 65;
+            this.label9.Text = "Status";
+            // 
             // Transaksi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(548, 367);
+            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.label6);
@@ -224,6 +265,8 @@
             this.Controls.Add(this.label1);
             this.Name = "Transaksi";
             this.Text = "Transaksi";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Transaksi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -250,5 +293,9 @@
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Label label9;
     }
 }
