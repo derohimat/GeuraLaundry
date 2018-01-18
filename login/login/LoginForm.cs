@@ -32,7 +32,6 @@ namespace login
             MySqlDataReader datareader = cmd.ExecuteReader();
             if (datareader.Read())
             {
-                MessageBox.Show("Login berhasil", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 MenuUtama main = new MenuUtama();
                 main.Show();
                 this.Hide();
