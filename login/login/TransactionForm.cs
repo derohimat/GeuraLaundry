@@ -11,14 +11,14 @@ using System.Windows.Forms;
 namespace login
 {
 
-    public partial class TransaksiForm : Form
+    public partial class TransactionForm : Form
     {
         private List<PackageDao> listPackage = new List<PackageDao>();
         private List<TypeDao> listType = new List<TypeDao>();
         private List<CustomerDao> listCustomer = new List<CustomerDao>();
         private MySqlConnection mDbConnection;
 
-        public TransaksiForm()
+        public TransactionForm()
         {
             InitializeComponent();
         }

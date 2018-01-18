@@ -32,7 +32,7 @@ namespace login
             MySqlDataReader datareader = cmd.ExecuteReader();
             if (datareader.Read())
             {
-                MenuUtama main = new MenuUtama();
+                MainMenu main = new MainMenu();
                 main.Show();
                 this.Hide();
             }

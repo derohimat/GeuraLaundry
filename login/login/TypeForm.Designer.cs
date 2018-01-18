@@ -1,6 +1,6 @@
 ﻿namespace login
 {
-    partial class JenisLaundryForm
+    partial class TypeForm
     {
         /// <summary>
         /// Required designer variable.
