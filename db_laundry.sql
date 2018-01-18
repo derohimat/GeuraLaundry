@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.7
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jan 15, 2018 at 03:30 PM
--- Server version: 10.1.28-MariaDB
--- PHP Version: 5.6.32
+-- Host: localhost
+-- Generation Time: Jan 18, 2018 at 12:36 PM
+-- Server version: 5.7.20
+-- PHP Version: 7.1.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_laundry`
+-- Database: `laundry`
 --
 
 -- --------------------------------------------------------
@@ -61,6 +61,25 @@ CREATE TABLE `package` (
 INSERT INTO `package` (`_id`, `name`, `estimate`) VALUES
 (1, 'paket kilat', 1),
 (2, 'paket reguler', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `transaction`
+--
+
+CREATE TABLE `transaction` (
+  `_id` int(11) NOT NULL,
+  `created_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_time` timestamp NULL DEFAULT NULL,
+  `finished_time` timestamp NULL DEFAULT NULL,
+  `package_id` int(11) NOT NULL,
+  `type_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL,
+  `status` int(1) NOT NULL,
+  `weight` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -113,10 +132,79 @@ INSERT INTO `user` (`user_id`, `username`, `password`, `firstname`, `lastname`, 
 --
 
 --
+-- Indexes for table `customer`
+--
+ALTER TABLE `customer`
+  ADD PRIMARY KEY (`_id`);
+
+--
+-- Indexes for table `package`
+--
+ALTER TABLE `package`
+  ADD PRIMARY KEY (`_id`);
+
+--
+-- Indexes for table `transaction`
+--
+ALTER TABLE `transaction`
+  ADD PRIMARY KEY (`_id`),
+  ADD KEY `transaction_package_id_foreign` (`package_id`),
+  ADD KEY `transaction_type_id_foreign` (`type_id`),
+  ADD KEY `transaction_user_id_foreign` (`user_id`),
+  ADD KEY `transaction_customer_id_foreign` (`customer_id`);
+
+--
+-- Indexes for table `type`
+--
+ALTER TABLE `type`
+  ADD PRIMARY KEY (`_id`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`user_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `customer`
+--
+ALTER TABLE `customer`
+  MODIFY `_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `package`
+--
+ALTER TABLE `package`
+  MODIFY `_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `transaction`
+--
+ALTER TABLE `transaction`
+  MODIFY `_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `type`
+--
+ALTER TABLE `type`
+  MODIFY `_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `transaction`
+--
+ALTER TABLE `transaction`
+  ADD CONSTRAINT `transaction_customer_id_foreign` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `transaction_package_id_foreign` FOREIGN KEY (`package_id`) REFERENCES `package` (`_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `transaction_type_id_foreign` FOREIGN KEY (`type_id`) REFERENCES `type` (`_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `transaction_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
