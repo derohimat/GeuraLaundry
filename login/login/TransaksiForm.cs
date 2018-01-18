@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace login
 {
-    public partial class Transaksi : Form
+    public partial class TransaksiForm : Form
     {
-        public Transaksi()
+        public TransaksiForm()
         {
             InitializeComponent();
         }

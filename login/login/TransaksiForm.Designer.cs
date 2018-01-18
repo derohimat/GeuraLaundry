@@ -1,6 +1,6 @@
 ﻿namespace login
 {
-    partial class Transaksi
+    partial class TransaksiForm
     {
         /// <summary>
         /// Required designer variable.

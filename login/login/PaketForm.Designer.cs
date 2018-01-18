@@ -1,6 +1,6 @@
 ﻿namespace login
 {
-    partial class Form4
+    partial class PaketForm
     {
         /// <summary>
         /// Required designer variable.
