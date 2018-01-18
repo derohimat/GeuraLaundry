@@ -1,6 +1,6 @@
 ﻿namespace login
 {
-    partial class Form2
+    partial class MenuUtama
     {
         /// <summary>
         /// Required designer variable.

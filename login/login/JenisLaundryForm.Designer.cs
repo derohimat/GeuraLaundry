@@ -1,6 +1,6 @@
 ﻿namespace login
 {
-    partial class Form5
+    partial class JenisLaundryForm
     {
         /// <summary>
         /// Required designer variable.

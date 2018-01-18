@@ -11,12 +11,12 @@ using System.Data.SqlClient;
 
 namespace login
 {
-    public partial class Form1 : Form
+    public partial class LoginForm : Form
     {
         MySqlConnection conn = new MySqlConnection("server=localhost; UID=root; Pwd=; " +
            "database=db_laundry;");
 
-        public Form1()
+        public LoginForm()
         {
             InitializeComponent();
         }
@@ -33,7 +33,7 @@ namespace login
             if (datareader.Read())
             {
                 MessageBox.Show("Login berhasil", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Form2 main = new Form2();
+                MenuUtama main = new MenuUtama();
                 main.Show();
                 this.Hide();
             }
