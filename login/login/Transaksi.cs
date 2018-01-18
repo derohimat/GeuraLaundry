@@ -54,7 +54,19 @@ namespace login
 
             connection.Close();
 
+            connection.Open();
+            string selectQueryPelanggan = "SELECT * FROM customer";
 
+            MySqlCommand commandPelanggan = new MySqlCommand(selectQueryPelanggan, connection);
+
+            MySqlDataReader readerPelanggan = commandPelanggan.ExecuteReader();
+
+            while (readerPelanggan.Read())
+            {
+                comboBox1.Items.Add(readerPelanggan.GetString("name"));
+            }
+
+            connection.Close();
         }
     }
 }
