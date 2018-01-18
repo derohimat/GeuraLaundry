@@ -10,8 +10,14 @@ using System.Windows.Forms;
 
 namespace login
 {
+
     public partial class TransaksiForm : Form
     {
+        private List<PackageDao> listPackage = new List<PackageDao>();
+        private List<TypeDao> listType = new List<TypeDao>();
+        private List<CustomerDao> listCustomer = new List<CustomerDao>();
+        private MySqlConnection mDbConnection;
+
         public TransaksiForm()
         {
             InitializeComponent();
@@ -24,49 +30,77 @@ namespace login
 
         private void Transaksi_Load(object sender, EventArgs e)
         {
-            MySqlConnection connection = new MySqlConnection("server=localhost;Database=db_laundry;username=root;password=;");
-            connection.Open();
+            loadData();
+        }
+
+        private void loadData()
+        {
+            mDbConnection = new MySqlConnection("server=localhost;Database=db_laundry;username=root;password=;");
+            mDbConnection.Open();
 
             string selectQueryType = "SELECT * FROM type";
-            
-            MySqlCommand commandType = new MySqlCommand(selectQueryType, connection);
-
+            MySqlCommand commandType = new MySqlCommand(selectQueryType, mDbConnection);
             MySqlDataReader readerType = commandType.ExecuteReader();
-
             while (readerType.Read())
             {
-                comboBox2.Items.Add(readerType.GetString("name"));
+                TypeDao item = new TypeDao
+                {
+                    ID = readerType.GetInt32("_id"),
+                    Name = readerType.GetString("name"),
+                    Price = readerType.GetInt32("price"),
+                    Unit = readerType.GetString("unit")
+                };
+
+                listType.Add(item);
+                comboBoxType.Items.Add(item.Name);
             }
+            mDbConnection.Close();
 
-            connection.Close();
-
-            connection.Open();
-            string selectQueryPaket = "SELECT * FROM package";
-            
-            MySqlCommand commandPaket = new MySqlCommand(selectQueryPaket, connection);
-
-            MySqlDataReader readerPaket = commandPaket.ExecuteReader();
-
-            while (readerPaket.Read())
+            mDbConnection.Open();
+            string selectQueryPackage = "SELECT * FROM package";
+            MySqlCommand commandPackage = new MySqlCommand(selectQueryPackage, mDbConnection);
+            MySqlDataReader readerPackage = commandPackage.ExecuteReader();
+            while (readerPackage.Read())
             {
-                comboBox3.Items.Add(readerPaket.GetString("name"));
+                PackageDao item = new PackageDao
+                {
+                    ID = readerPackage.GetInt32("_id"),
+                    Name = readerPackage.GetString("name"),
+                    Estimate = readerPackage.GetInt32("estimate")
+                };
+
+                listPackage.Add(item);
+                comboBoxPackage.Items.Add(item.Name);
             }
+            mDbConnection.Close();
 
-            connection.Close();
-
-            connection.Open();
+            mDbConnection.Open();
             string selectQueryPelanggan = "SELECT * FROM customer";
-
-            MySqlCommand commandPelanggan = new MySqlCommand(selectQueryPelanggan, connection);
-
-            MySqlDataReader readerPelanggan = commandPelanggan.ExecuteReader();
-
-            while (readerPelanggan.Read())
+            MySqlCommand commandCustomer = new MySqlCommand(selectQueryPelanggan, mDbConnection);
+            MySqlDataReader readerCustomer = commandCustomer.ExecuteReader();
+            while (readerCustomer.Read())
             {
-                comboBox1.Items.Add(readerPelanggan.GetString("name"));
-            }
+                CustomerDao item = new CustomerDao
+                {
+                    ID = readerCustomer.GetInt32("_id"),
+                    Name = readerCustomer.GetString("name"),
+                    PhoneNumber = readerCustomer.GetString("phone_number"),
+                    Address = readerCustomer.GetString("address")
+                };
 
-            connection.Close();
+                listCustomer.Add(item);
+                comboBoxCustomer.Items.Add(item.Name);
+            }
+            mDbConnection.Close();
+        }
+
+        private void comboBoxCustomer_SelectedIndexChanged(object sender,
+        System.EventArgs e)
+        {
+            CustomerDao customerDao = listCustomer[comboBoxCustomer.SelectedIndex];
+
+            textBoxPhoneNumber.Text = customerDao.PhoneNumber;
+            textBoxAddress.Text = customerDao.Address;
         }
     }
 }

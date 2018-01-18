@@ -60,6 +60,9 @@
     <Compile Include="MenuUtama.Designer.cs">
       <DependentUpon>MenuUtama.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomerDao.cs" />
+    <Compile Include="TypeDao.cs" />
+    <Compile Include="PackageDao.cs" />
     <Compile Include="UserForm.cs">
       <SubType>Form</SubType>
     </Compile>
