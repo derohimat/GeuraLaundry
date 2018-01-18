@@ -21,10 +21,10 @@ namespace login
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonLogin_Click(object sender, EventArgs e)
         {
-            string username = textBox1.Text;
-            string password = textBox2.Text;
+            string username = textBoxUsername.Text;
+            string password = textBoxPassword.Text;
             conn.Open();
             MySqlCommand cmd = conn.CreateCommand();
             cmd.CommandType = CommandType.Text;
@@ -39,9 +39,9 @@ namespace login
             else
             {
                 MessageBox.Show("Username dan Password tidak cocok", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                textBox1.Text = "";
-                textBox2.Text = "";
-                textBox1.Focus();
+                textBoxUsername.Text = "";
+                textBoxPassword.Text = "";
+                textBoxUsername.Focus();
             }
             conn.Close();
         }
