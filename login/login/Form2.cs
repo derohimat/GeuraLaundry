@@ -44,6 +44,11 @@ namespace login
             newMDIChild.Show();
         }
 
-        
+        private void submenu3ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Transaksi newMDIChild = new Transaksi();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
     }
 }

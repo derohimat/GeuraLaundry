@@ -31,3 +31,4 @@ Y:\Kuliah\Visual3\GeuraLaundry\login\login\obj\x86\Debug\login.csproj.GenerateRe
 Y:\Kuliah\Visual3\GeuraLaundry\login\login\obj\x86\Debug\login.csproj.CoreCompileInputs.cache
 Y:\Kuliah\Visual3\GeuraLaundry\login\login\obj\x86\Debug\login.exe
 Y:\Kuliah\Visual3\GeuraLaundry\login\login\obj\x86\Debug\login.pdb
+Y:\Kuliah\Visual3\GeuraLaundry\login\login\obj\x86\Debug\login.Transaksi.resources
