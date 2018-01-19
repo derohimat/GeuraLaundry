@@ -39,7 +39,10 @@ namespace login
             try
             {
                 mDbConnection.Open();
-                string query = "select * from transaction";
+                string query = "SELECT a._id, b.name as customer, c.name as type, d.name as package, " +
+                    " a.weight, b.phone_number, b.address,  (CASE WHEN a.status = 0 THEN 'Proses' ELSE 'Selesai' END) as status " +
+                    "FROM transaction a JOIN customer b ON(a.customer_id = b._id) JOIN type c ON(a.type_id= c._id) " +
+                    "JOIN package d ON(a.package_id = d._id)";
                 using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, mDbConnection))
                 {
                     DataSet ds = new DataSet();
