@@ -11,11 +11,11 @@ using System.Data.SqlClient;
 
 namespace login
 {
-    public partial class Form4 : Form
+    public partial class TypeForm : Form
     {
         MySqlConnection conn = new MySqlConnection("server=localhost; UID=root; Pwd=; " +
            "database=db_laundry;");
-        public Form4()
+        public TypeForm()
         {
             InitializeComponent();
             loadDataset();
@@ -26,7 +26,7 @@ namespace login
             try
             {
                 conn.Open();
-                string query = "select * from package";
+                string query = "select * from type";
                 using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn))
                 {
                     DataSet ds = new DataSet();
@@ -46,18 +46,10 @@ namespace login
             MessageBox.Show("Data Berhasil Ditambahkan");
             MySqlCommand cmd = conn.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "insert into package (_id, name, estimate) values ('" + textBox1.Text + "','" + textBox2.Text + "', '" + textBox3.Text + "')";
+            cmd.CommandText = "insert into type (_id, name, price, unit) values ('" + textBox1.Text + "','" + textBox2.Text + "', '" + textBox3.Text + "', '" + textBox4.Text + "')";
             cmd.ExecuteNonQuery();
             conn.Close();
             loadDataset();
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            var pilhrow = dataGridView1.SelectedRows[0];
-            textBox1.Text = pilhrow.Cells["_id"].Value.ToString();
-            textBox2.Text = pilhrow.Cells["name"].Value.ToString();
-            textBox3.Text = pilhrow.Cells["estimate"].Value.ToString();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -66,7 +58,7 @@ namespace login
             MessageBox.Show("Data Berhasil Diupdate");
             MySqlCommand cmd = conn.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = ("update package set name='" + textBox2.Text + "', estimate='" + textBox3.Text + "' where _id='" + textBox1.Text + "'");
+            cmd.CommandText = ("update type set name='" + textBox2.Text + "', price='" + textBox3.Text + "', unit='" + textBox4.Text + "' where _id='" + textBox1.Text + "'");
             cmd.ExecuteNonQuery();
             conn.Close();
             loadDataset();
@@ -78,10 +70,19 @@ namespace login
             MessageBox.Show("Data Berhasil Dihapus");
             MySqlCommand cmd = conn.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = ("delete from package where _id = '" + textBox1.Text + "'");
+            cmd.CommandText = ("delete from type where _id = '" + textBox1.Text + "'");
             cmd.ExecuteNonQuery();
             conn.Close();
             loadDataset();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var pilhrow = dataGridView1.SelectedRows[0];
+            textBox1.Text = pilhrow.Cells["_id"].Value.ToString();
+            textBox2.Text = pilhrow.Cells["name"].Value.ToString();
+            textBox3.Text = pilhrow.Cells["price"].Value.ToString();
+            textBox4.Text = pilhrow.Cells["unit"].Value.ToString();
         }
     }
 }

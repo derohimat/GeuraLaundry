@@ -11,20 +11,20 @@ using System.Data.SqlClient;
 
 namespace login
 {
-    public partial class Form1 : Form
+    public partial class LoginForm : Form
     {
         MySqlConnection conn = new MySqlConnection("server=localhost; UID=root; Pwd=; " +
            "database=db_laundry;");
 
-        public Form1()
+        public LoginForm()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonLogin_Click(object sender, EventArgs e)
         {
-            string username = textBox1.Text;
-            string password = textBox2.Text;
+            string username = textBoxUsername.Text;
+            string password = textBoxPassword.Text;
             conn.Open();
             MySqlCommand cmd = conn.CreateCommand();
             cmd.CommandType = CommandType.Text;
@@ -32,17 +32,16 @@ namespace login
             MySqlDataReader datareader = cmd.ExecuteReader();
             if (datareader.Read())
             {
-                MessageBox.Show("Login berhasil", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Form2 main = new Form2();
+                MainMenu main = new MainMenu();
                 main.Show();
                 this.Hide();
             }
             else
             {
                 MessageBox.Show("Username dan Password tidak cocok", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                textBox1.Text = "";
-                textBox2.Text = "";
-                textBox1.Focus();
+                textBoxUsername.Text = "";
+                textBoxPassword.Text = "";
+                textBoxUsername.Focus();
             }
             conn.Close();
         }
