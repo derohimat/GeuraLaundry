@@ -36,8 +36,8 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.textBoxPhoneNumber = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textWeight = new System.Windows.Forms.TextBox();
+            this.textId = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxCustomer = new System.Windows.Forms.ComboBox();
@@ -46,9 +46,7 @@
             this.comboBoxType = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.comboBoxPackage = new System.Windows.Forms.ComboBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textStatus = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -122,19 +120,19 @@
             this.label3.TabIndex = 49;
             this.label3.Text = "No Telp";
             // 
-            // textBox2
+            // textWeight
             // 
-            this.textBox2.Location = new System.Drawing.Point(110, 124);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(122, 20);
-            this.textBox2.TabIndex = 48;
+            this.textWeight.Location = new System.Drawing.Point(110, 124);
+            this.textWeight.Name = "textWeight";
+            this.textWeight.Size = new System.Drawing.Size(122, 20);
+            this.textWeight.TabIndex = 48;
             // 
-            // textBox1
+            // textId
             // 
-            this.textBox1.Location = new System.Drawing.Point(110, 17);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(47, 20);
-            this.textBox1.TabIndex = 47;
+            this.textId.Location = new System.Drawing.Point(110, 17);
+            this.textId.Name = "textId";
+            this.textId.Size = new System.Drawing.Size(47, 20);
+            this.textId.TabIndex = 47;
             // 
             // label2
             // 
@@ -206,33 +204,17 @@
             this.comboBoxPackage.Size = new System.Drawing.Size(121, 21);
             this.comboBoxPackage.TabIndex = 61;
             // 
-            // textBox5
+            // textStatus
             // 
-            this.textBox5.Location = new System.Drawing.Point(338, 94);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(122, 20);
-            this.textBox5.TabIndex = 64;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(252, 97);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(68, 13);
-            this.label8.TabIndex = 63;
-            this.label8.Text = "Waktu Order";
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(338, 124);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(122, 20);
-            this.textBox6.TabIndex = 66;
+            this.textStatus.Location = new System.Drawing.Point(338, 100);
+            this.textStatus.Name = "textStatus";
+            this.textStatus.Size = new System.Drawing.Size(122, 20);
+            this.textStatus.TabIndex = 66;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(252, 127);
+            this.label9.Location = new System.Drawing.Point(252, 103);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(37, 13);
             this.label9.TabIndex = 65;
@@ -243,10 +225,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(548, 367);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.textStatus);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.comboBoxPackage);
             this.Controls.Add(this.label6);
@@ -261,8 +241,8 @@
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.textBoxPhoneNumber);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textWeight);
+            this.Controls.Add(this.textId);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "TransactionForm";
@@ -285,8 +265,8 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.TextBox textBoxPhoneNumber;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textWeight;
+        private System.Windows.Forms.TextBox textId;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBoxCustomer;
@@ -295,9 +275,7 @@
         private System.Windows.Forms.ComboBox comboBoxType;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox comboBoxPackage;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textStatus;
         private System.Windows.Forms.Label label9;
     }
 }
