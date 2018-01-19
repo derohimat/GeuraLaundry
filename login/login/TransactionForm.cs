@@ -160,5 +160,17 @@ namespace login
             mDbConnection.Close();
             loadDataset();
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            mDbConnection.Open();
+            MessageBox.Show("Data Berhasil Dihapus");
+            MySqlCommand cmd = mDbConnection.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = ("delete from transaction where _id = '" + textId.Text + "'");
+            cmd.ExecuteNonQuery();
+            mDbConnection.Close();
+            loadDataset();
+        }
     }
 }
