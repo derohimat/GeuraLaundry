@@ -123,5 +123,10 @@ namespace login
             textBoxPhoneNumber.Text = customerDao.PhoneNumber;
             textBoxAddress.Text = customerDao.Address;
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
