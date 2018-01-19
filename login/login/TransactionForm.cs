@@ -21,11 +21,26 @@ namespace login
         public TransactionForm()
         {
             InitializeComponent();
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            var pilhrow = dataGridView1.SelectedRows[0];
+            textId.Text = pilhrow.Cells["_id"].Value.ToString();
+            textBoxAddress.Text = pilhrow.Cells["address"].Value.ToString();
+            textStatus.Text = pilhrow.Cells["status"].Value.ToString();
+            textBoxPhoneNumber.Text = pilhrow.Cells["phone_number"].Value.ToString();
+            textWeight.Text = pilhrow.Cells["weight"].Value.ToString();
+            
+            String name = pilhrow.Cells["customer"].Value.ToString();
+            comboBoxCustomer.SelectedIndex = comboBoxCustomer.FindStringExact(name);
 
+            String type = pilhrow.Cells["type"].Value.ToString();
+            comboBoxType.SelectedIndex = comboBoxType.FindStringExact(type);
+
+            String package = pilhrow.Cells["package"].Value.ToString();
+            comboBoxPackage.SelectedIndex = comboBoxPackage.FindStringExact(package);
         }
 
         private void Transaksi_Load(object sender, EventArgs e)
@@ -141,6 +156,18 @@ namespace login
             cmd.CommandText = "INSERT INTO `transaction` (`_id`, `package_id`, `type_id`, `user_id`, `customer_id`, `status`, `weight`) values " +
                 "('" + textId.Text + "','" + selectedPackageId + "', '" + selecteTypeId +"', '" + "1" + "', '"
                 + selectedCustomerId + "', '" + "0" + "', '" + textWeight.Text + "')";
+            cmd.ExecuteNonQuery();
+            mDbConnection.Close();
+            loadDataset();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            mDbConnection.Open();
+            MessageBox.Show("Data Berhasil Dihapus");
+            MySqlCommand cmd = mDbConnection.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = ("delete from transaction where _id = '" + textId.Text + "'");
             cmd.ExecuteNonQuery();
             mDbConnection.Close();
             loadDataset();
