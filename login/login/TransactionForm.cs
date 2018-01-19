@@ -21,11 +21,26 @@ namespace login
         public TransactionForm()
         {
             InitializeComponent();
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            var pilhrow = dataGridView1.SelectedRows[0];
+            textId.Text = pilhrow.Cells["_id"].Value.ToString();
+            textBoxAddress.Text = pilhrow.Cells["address"].Value.ToString();
+            textStatus.Text = pilhrow.Cells["status"].Value.ToString();
+            textBoxPhoneNumber.Text = pilhrow.Cells["phone_number"].Value.ToString();
+            textWeight.Text = pilhrow.Cells["weight"].Value.ToString();
+            
+            String name = pilhrow.Cells["customer"].Value.ToString();
+            comboBoxCustomer.SelectedIndex = comboBoxCustomer.FindStringExact(name);
 
+            String type = pilhrow.Cells["type"].Value.ToString();
+            comboBoxType.SelectedIndex = comboBoxType.FindStringExact(type);
+
+            String package = pilhrow.Cells["package"].Value.ToString();
+            comboBoxPackage.SelectedIndex = comboBoxPackage.FindStringExact(package);
         }
 
         private void Transaksi_Load(object sender, EventArgs e)
