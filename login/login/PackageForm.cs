@@ -11,11 +11,11 @@ using System.Data.SqlClient;
 
 namespace login
 {
-    public partial class PaketForm : Form
+    public partial class PackageForm : Form
     {
         MySqlConnection conn = new MySqlConnection("server=localhost; UID=root; Pwd=; " +
            "database=db_laundry;");
-        public PaketForm()
+        public PackageForm()
         {
             InitializeComponent();
             loadDataset();

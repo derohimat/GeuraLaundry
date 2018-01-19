@@ -25,7 +25,7 @@ namespace login
 
         private void packageMenuItem_Click(object sender, EventArgs e)
         {
-            PaketForm newMDIChild = new PaketForm();
+            PackageForm newMDIChild = new PackageForm();
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
