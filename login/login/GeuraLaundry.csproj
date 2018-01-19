@@ -54,12 +54,15 @@
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MenuUtama.cs">
+    <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MenuUtama.Designer.cs">
-      <DependentUpon>MenuUtama.cs</DependentUpon>
+    <Compile Include="MainMenu.Designer.cs">
+      <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomerDao.cs" />
+    <Compile Include="TypeDao.cs" />
+    <Compile Include="PackageDao.cs" />
     <Compile Include="UserForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,11 +75,11 @@
     <Compile Include="PaketForm.Designer.cs">
       <DependentUpon>PaketForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="JenisLaundryForm.cs">
+    <Compile Include="TypeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="JenisLaundryForm.Designer.cs">
-      <DependentUpon>JenisLaundryForm.cs</DependentUpon>
+    <Compile Include="TypeForm.Designer.cs">
+      <DependentUpon>TypeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomerForm.cs">
       <SubType>Form</SubType>
@@ -86,17 +89,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TransaksiForm.cs">
+    <Compile Include="TransactionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TransaksiForm.Designer.cs">
-      <DependentUpon>TransaksiForm.cs</DependentUpon>
+    <Compile Include="TransactionForm.Designer.cs">
+      <DependentUpon>TransactionForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MenuUtama.resx">
-      <DependentUpon>MenuUtama.cs</DependentUpon>
+    <EmbeddedResource Include="MainMenu.resx">
+      <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>
@@ -104,8 +107,8 @@
     <EmbeddedResource Include="PaketForm.resx">
       <DependentUpon>PaketForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="JenisLaundryForm.resx">
-      <DependentUpon>JenisLaundryForm.cs</DependentUpon>
+    <EmbeddedResource Include="TypeForm.resx">
+      <DependentUpon>TypeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomerForm.resx">
       <DependentUpon>CustomerForm.cs</DependentUpon>
@@ -119,8 +122,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="TransaksiForm.resx">
-      <DependentUpon>TransaksiForm.cs</DependentUpon>
+    <EmbeddedResource Include="TransactionForm.resx">
+      <DependentUpon>TransactionForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

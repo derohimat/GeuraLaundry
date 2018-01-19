@@ -11,11 +11,11 @@ using System.Data.SqlClient;
 
 namespace login
 {
-    public partial class JenisLaundryForm : Form
+    public partial class TypeForm : Form
     {
         MySqlConnection conn = new MySqlConnection("server=localhost; UID=root; Pwd=; " +
            "database=db_laundry;");
-        public JenisLaundryForm()
+        public TypeForm()
         {
             InitializeComponent();
             loadDataset();

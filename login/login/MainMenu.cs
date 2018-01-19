@@ -9,53 +9,60 @@ using System.Windows.Forms;
 
 namespace login
 {
-    public partial class MenuUtama : Form
+    public partial class MainMenu : Form
     {
-        public MenuUtama()
+        public MainMenu()
         {
             InitializeComponent();
         }
 
-        private void registrasiUserToolStripMenuItem_Click(object sender, EventArgs e)
+        private void userRegisterMenuItem_Click(object sender, EventArgs e)
         {
             UserForm newMDIChild = new UserForm();
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
 
-        private void submenu4ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void packageMenuItem_Click(object sender, EventArgs e)
         {
             PaketForm newMDIChild = new PaketForm();
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
 
-        private void ambilCucianToolStripMenuItem_Click(object sender, EventArgs e)
+        private void typeMenuItem_Click(object sender, EventArgs e)
         {
-            JenisLaundryForm newMDIChild = new JenisLaundryForm();
+            TypeForm newMDIChild = new TypeForm();
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
 
-        private void submenu2ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void customerMenuItem_Click(object sender, EventArgs e)
         {
             CustomerForm newMDIChild = new CustomerForm();
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
 
-        private void submenu3ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void transactionMenuItem_Click(object sender, EventArgs e)
         {
-            TransaksiForm newMDIChild = new TransaksiForm();
+            TransactionForm newMDIChild = new TransactionForm();
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
 
-        private void Form2_Load(object sender, EventArgs e)
+        private void LoginForm_Load(object sender, EventArgs e)
         {
-            TransaksiForm newMDIChild = new TransaksiForm();
+            TransactionForm newMDIChild = new TransactionForm();
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
+        }
+
+        private void logOutMenuItem_Click(object sender, EventArgs e)
+        {
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+            this.Hide();
         }
     }
 }
