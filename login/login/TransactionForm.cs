@@ -31,6 +31,27 @@ namespace login
         private void Transaksi_Load(object sender, EventArgs e)
         {
             loadData();
+            loadDataset();
+        }
+
+        public void loadDataset()
+        {
+            try
+            {
+                mDbConnection.Open();
+                string query = "select * from transaction";
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, mDbConnection))
+                {
+                    DataSet ds = new DataSet();
+                    adapter.Fill(ds);
+                    dataGridView1.DataSource = ds.Tables[0];
+                }
+                mDbConnection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed with error : " + ex.Message);
+            }
         }
 
         private void loadData()
@@ -101,6 +122,25 @@ namespace login
 
             textBoxPhoneNumber.Text = customerDao.PhoneNumber;
             textBoxAddress.Text = customerDao.Address;
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            mDbConnection.Open();
+            MessageBox.Show("Data Berhasil Ditambahkan");
+            MySqlCommand cmd = mDbConnection.CreateCommand();
+
+            int selectedCustomerId = listCustomer[comboBoxCustomer.SelectedIndex].ID;
+            int selectedPackageId = listPackage[comboBoxPackage.SelectedIndex].ID;
+            int selecteTypeId = listType[comboBoxType.SelectedIndex].ID;
+
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "INSERT INTO `transaction` (`_id`, `package_id`, `type_id`, `user_id`, `customer_id`, `status`, `weight`) values " +
+                "('" + textId.Text + "','" + selectedPackageId + "', '" + selecteTypeId +"', '" + "1" + "', '"
+                + selectedCustomerId + "', '" + "0" + "', '" + textWeight.Text + "')";
+            cmd.ExecuteNonQuery();
+            mDbConnection.Close();
+            loadDataset();
         }
     }
 }
