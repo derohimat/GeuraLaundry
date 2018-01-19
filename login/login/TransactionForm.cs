@@ -31,6 +31,27 @@ namespace login
         private void Transaksi_Load(object sender, EventArgs e)
         {
             loadData();
+            loadDataset();
+        }
+
+        public void loadDataset()
+        {
+            try
+            {
+                mDbConnection.Open();
+                string query = "select * from transaction";
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, mDbConnection))
+                {
+                    DataSet ds = new DataSet();
+                    adapter.Fill(ds);
+                    dataGridView1.DataSource = ds.Tables[0];
+                }
+                mDbConnection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed with error : " + ex.Message);
+            }
         }
 
         private void loadData()
@@ -101,6 +122,11 @@ namespace login
 
             textBoxPhoneNumber.Text = customerDao.PhoneNumber;
             textBoxAddress.Text = customerDao.Address;
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
