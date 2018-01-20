@@ -193,5 +193,23 @@ namespace login
             mDbConnection.Close();
             loadDataset();
         }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            mDbConnection.Open();
+            MessageBox.Show("Data Berhasil Diupdate");
+            int selecteStatusId = listStatus[comboBoxStatus.SelectedIndex].ID;
+            MySqlCommand cmd = mDbConnection.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = ("update transaction set status='" + selecteStatusId + "' where _id='" + textId.Text + "'");
+            cmd.ExecuteNonQuery();
+            mDbConnection.Close();
+            loadDataset();
+        }
+
+        private void comboBoxType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
