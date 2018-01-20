@@ -61,6 +61,7 @@
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomerDao.cs" />
+    <Compile Include="StatusDao.cs" />
     <Compile Include="TypeDao.cs" />
     <Compile Include="PackageDao.cs" />
     <Compile Include="UserForm.cs">

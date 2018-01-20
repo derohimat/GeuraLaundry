@@ -16,6 +16,7 @@ namespace login
         private List<PackageDao> listPackage = new List<PackageDao>();
         private List<TypeDao> listType = new List<TypeDao>();
         private List<CustomerDao> listCustomer = new List<CustomerDao>();
+        private List<StatusDao> listStatus = new List<StatusDao>();
         private MySqlConnection mDbConnection;
 
         public TransactionForm()
@@ -29,7 +30,6 @@ namespace login
             var pilhrow = dataGridView1.SelectedRows[0];
             textId.Text = pilhrow.Cells["_id"].Value.ToString();
             textBoxAddress.Text = pilhrow.Cells["address"].Value.ToString();
-            textStatus.Text = pilhrow.Cells["status"].Value.ToString();
             textBoxPhoneNumber.Text = pilhrow.Cells["phone_number"].Value.ToString();
             textWeight.Text = pilhrow.Cells["weight"].Value.ToString();
             
@@ -41,6 +41,9 @@ namespace login
 
             String package = pilhrow.Cells["package"].Value.ToString();
             comboBoxPackage.SelectedIndex = comboBoxPackage.FindStringExact(package);
+
+            String status = pilhrow.Cells["status"].Value.ToString();
+            comboBoxStatus.SelectedIndex = comboBoxStatus.FindStringExact(status);
         }
 
         private void Transaksi_Load(object sender, EventArgs e)
@@ -131,6 +134,23 @@ namespace login
                 comboBoxCustomer.Items.Add(item.Name);
             }
             mDbConnection.Close();
+            
+            StatusDao itemStatusProses = new StatusDao();
+            itemStatusProses.ID = 0;
+            itemStatusProses.Name = "Proses";
+
+            listStatus.Add(itemStatusProses);
+
+            StatusDao itemStatusFinish = new StatusDao();
+            itemStatusFinish.ID = 1;
+            itemStatusFinish.Name = "Selesai";
+            listStatus.Add(itemStatusFinish);
+
+            for (int i = 0; i < listStatus.Count; i++)
+            {
+                StatusDao statusDao = listStatus[i];
+                comboBoxStatus.Items.Add(statusDao.Name);
+            }
         }
 
         private void comboBoxCustomer_SelectedIndexChanged(object sender,
@@ -151,11 +171,12 @@ namespace login
             int selectedCustomerId = listCustomer[comboBoxCustomer.SelectedIndex].ID;
             int selectedPackageId = listPackage[comboBoxPackage.SelectedIndex].ID;
             int selecteTypeId = listType[comboBoxType.SelectedIndex].ID;
+            int selecteStatusId = listStatus[comboBoxStatus.SelectedIndex].ID;
 
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = "INSERT INTO `transaction` (`_id`, `package_id`, `type_id`, `user_id`, `customer_id`, `status`, `weight`) values " +
                 "('" + textId.Text + "','" + selectedPackageId + "', '" + selecteTypeId +"', '" + "1" + "', '"
-                + selectedCustomerId + "', '" + "0" + "', '" + textWeight.Text + "')";
+                + selectedCustomerId + "', '" + selecteStatusId + "', '" + textWeight.Text + "')";
             cmd.ExecuteNonQuery();
             mDbConnection.Close();
             loadDataset();

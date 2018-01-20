@@ -46,8 +46,8 @@
             this.comboBoxType = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.comboBoxPackage = new System.Windows.Forms.ComboBox();
-            this.textStatus = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.comboBoxStatus = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -205,13 +205,6 @@
             this.comboBoxPackage.Size = new System.Drawing.Size(121, 21);
             this.comboBoxPackage.TabIndex = 61;
             // 
-            // textStatus
-            // 
-            this.textStatus.Location = new System.Drawing.Point(338, 100);
-            this.textStatus.Name = "textStatus";
-            this.textStatus.Size = new System.Drawing.Size(122, 20);
-            this.textStatus.TabIndex = 66;
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -221,12 +214,20 @@
             this.label9.TabIndex = 65;
             this.label9.Text = "Status";
             // 
+            // comboBoxStatus
+            // 
+            this.comboBoxStatus.FormattingEnabled = true;
+            this.comboBoxStatus.Location = new System.Drawing.Point(338, 100);
+            this.comboBoxStatus.Name = "comboBoxStatus";
+            this.comboBoxStatus.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxStatus.TabIndex = 67;
+            // 
             // TransactionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(548, 367);
-            this.Controls.Add(this.textStatus);
+            this.Controls.Add(this.comboBoxStatus);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.comboBoxPackage);
@@ -276,7 +277,7 @@
         private System.Windows.Forms.ComboBox comboBoxType;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox comboBoxPackage;
-        private System.Windows.Forms.TextBox textStatus;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox comboBoxStatus;
     }
 }
